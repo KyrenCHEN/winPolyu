@@ -6,5 +6,5 @@
 ```bash
 # A comment git
 echo 'hello wolrd'
-echo 'second time'
+echo 'second timet'
 ```

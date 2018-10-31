@@ -1,0 +1,18 @@
+from astropy.stats import bootstrap
+import numpy as np
+from astropy.utils import NumpyRNGContext
+from collections import Counter
+bootarr = np.array([0])
+#n=10
+def fre(array,n):
+    fre=[]
+    for i in range(n):
+        fre.append(len(bootarr[array==i])/len(array))
+    return fre
+
+def bootstraps(bootarr,dim,times):
+    test_statistic = lambda x:fre(x,dim)
+    with NumpyRNGContext(1):
+        bootresult = bootstrap(bootarr, times,bootfunc=test_statistic)
+    return np.mean(bootresult,0),np.var(bootresult,0)
+bootstraps(bootarr,8,1000)
