@@ -16,3 +16,5 @@ def bootstraps(bootarr,dim,times):
         bootresult = bootstrap(bootarr, times,bootfunc=test_statistic)
     return np.mean(bootresult,0),np.var(bootresult,0)
 bootstraps(bootarr,8,1000)
+print('dssss')
+print('defs')
